@@ -16,17 +16,32 @@ namespace RavenDB.Tryout.App
 
             switch (arg)
             {
-                case "create":
-                    CreateDocument();
+                case "create-user":
+                    CreateUser();
                     break;
                 
-                case "read":
-                case "update":
-                    ReadAndUpdateDocument();
+                case "create-group":
+                    CreateGroup();
                     break;
                 
-                case "delete":
-                    DeleteDocument();
+                case "add-user-to-group":
+                    AddUserToGroup();
+                    break;
+                
+                case "show-group-users":
+                    ShowGroupUsers();
+                    break;
+                
+                case "remove-user-from-group":
+                    RemoveUserFromGroup();
+                    break;
+                
+                case "delete-user":
+                    DeleteUser();
+                    break;
+                
+                case "show-user-activity":
+                    ShowUserActivity();
                     break;
                 
                 default:
@@ -35,17 +50,37 @@ namespace RavenDB.Tryout.App
             }
         }
 
-        private static void CreateDocument()
+        private static void CreateUser()
         {
             throw new NotImplementedException("TODO");
         }
 
-        private static void ReadAndUpdateDocument()
+        private static void CreateGroup()
         {
             throw new NotImplementedException("TODO");
         }
 
-        private static void DeleteDocument()
+        private static void AddUserToGroup()
+        {
+            throw new NotImplementedException("TODO");
+        }
+
+        private static void ShowGroupUsers()
+        {
+            throw new NotImplementedException("TODO");
+        }
+
+        private static void RemoveUserFromGroup()
+        {
+            throw new NotImplementedException("TODO");
+        }
+
+        private static void DeleteUser()
+        {
+            throw new NotImplementedException("TODO");
+        }
+
+        private static void ShowUserActivity()
         {
             throw new NotImplementedException("TODO");
         }
