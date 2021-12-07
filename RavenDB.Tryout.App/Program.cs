@@ -1,88 +1,59 @@
 ﻿using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace RavenDB.Tryout.App
 {
     class Program
     {
+        private static readonly Random _random = new Random();
+        
         static void Main(string[] args)
         {
-            if (args.Length == 0)
-            {
-                Console.WriteLine("No argument provided.");
-                return;
-            }
+
+            // 1. Create document in collection: TermsAndConditions
             
-            var arg = args[0];
+            //TODO
+            
+            // 2. Create attachment for newly created document (256 KB in size)
 
-            switch (arg)
+            //TODO:
+
+            // 3. Calculate md5 of attachment
+
+            // TODO
+
+            // 4. Modify attachment 2 times (using different random generated data) and save
+            // calculate md5 of each new attachment and store
+
+            //TODO
+
+            // 5. Download 3 versions of document and attachments 
+            // compare md5 with stored one
+
+            // TODO
+        }
+
+        private static byte[] GenerateRandomBytes(int length)
+        {
+            var result = new byte[length];
+            _random.NextBytes(result);
+            return result;
+        }
+
+        private static string ComputeHash(byte[] input)
+        {
+            using (var md5 = MD5.Create())
             {
-                case "create-user":
-                    CreateUser();
-                    break;
-                
-                case "create-group":
-                    CreateGroup();
-                    break;
-                
-                case "add-user-to-group":
-                    AddUserToGroup();
-                    break;
-                
-                case "show-group-users":
-                    ShowGroupUsers();
-                    break;
-                
-                case "remove-user-from-group":
-                    RemoveUserFromGroup();
-                    break;
-                
-                case "delete-user":
-                    DeleteUser();
-                    break;
-                
-                case "show-user-activity":
-                    ShowUserActivity();
-                    break;
-                
-                default:
-                    Console.WriteLine("No matching argument provided.");
-                    break;
+                var hashBytes = md5.ComputeHash(input);
+                StringBuilder sb = new StringBuilder();
+                foreach (var t in hashBytes)
+                {
+                    sb.Append(t.ToString("X2"));
+                }
+                return sb.ToString();
             }
-        }
-
-        private static void CreateUser()
-        {
-            throw new NotImplementedException("TODO");
-        }
-
-        private static void CreateGroup()
-        {
-            throw new NotImplementedException("TODO");
-        }
-
-        private static void AddUserToGroup()
-        {
-            throw new NotImplementedException("TODO");
-        }
-
-        private static void ShowGroupUsers()
-        {
-            throw new NotImplementedException("TODO");
-        }
-
-        private static void RemoveUserFromGroup()
-        {
-            throw new NotImplementedException("TODO");
-        }
-
-        private static void DeleteUser()
-        {
-            throw new NotImplementedException("TODO");
-        }
-
-        private static void ShowUserActivity()
-        {
-            throw new NotImplementedException("TODO");
         }
     }
 }
